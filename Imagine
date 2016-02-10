@@ -66,6 +66,46 @@ public class Imagine {
 		return 1;
 	}
 	
+		public void paintLine(int R1, int R2, int C1, int C2 ) {
+		if (((R1 >= 0 && R1 < this.getRows()) && (R2 >= 0 && R2 < this.getRows()))
+			&& ((C1 >= 0 && C1 < this.getCols()) && (C2 >= 0 && C2 < this.getCols())) ){
+			//System.out.println("Range bun");
+			if (C1 == C2) {
+			//	System.out.println("Paint horizontal!");
+				if (R1 == R2) {
+					Matrice[R1][C1] = '#';
+				} else if ( R1 < R2 ) {
+					for ( int i = R1; i <= R2; i++) {
+						Matrice[i][C1] = '#';
+					}//end for
+				} else {
+					for ( int i = R2; i <= R1; i++) {
+						Matrice[i][C1] = '#';
+					}//end for
+				} // end if
+				
+			} // end if ( C1 == C2)
+			
+			if (R1 == R2) {
+				//System.out.println("Paint vertical");
+				if (C1 == C2) {
+					Matrice[R1][C1] = '#';
+				} else if ( C1 < C2 ) {
+					for ( int i = C1; i <= C2; i++) {
+						Matrice[R1][i] = '#';
+					}//end for
+				} else {
+					for ( int i = C2; i <= C1; i++) {
+						Matrice[R1][i] = '#';
+					}//end for
+				} // end if
+				
+			}
+			
+		} // end big if ( for range)
+	}// end method
+	
+	
 	public void eraseCell(int R, int C) {
 		try{
 			Matrice[R][C]='.';
