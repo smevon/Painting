@@ -16,9 +16,10 @@ public class Imagine {
 	}
 	
 	public void afisare() {
-		for (int i = 0; i < this.getRows; i++) {
-			for (int j = 0; j < this.getCols; j++)
-				System.out.print(matrice[i][j]);
+		for (int i = 0; i < this.getRows(); i++) {
+			for (int j = 0; j < this.getCols(); j++)
+				System.out.print(Matrice[i][j]);
 			System.out.println();
 	}
+}
 }
