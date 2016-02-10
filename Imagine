@@ -113,6 +113,22 @@ public class Imagine {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public int getHashTag(int miniRow, int miniCols) {
+		// returneaza cate HashTag-uri is intr-o parte mai micuta a matricei
+		// daca dorim sa ne returneze HashTagurile din matricea totala ii dam ca
+		// parametri rows si cols
+		int count = 0;
+		for (int i = 0; i < miniRow; i++)
+			for (int j = 0; j < miniCols; j++) {
+				if (Matrice[i][j] == '#')
+					count++;
+			}
+		// System.out.println("nr total de hasthtaguri din parcela respectiva: "
+		// + count);
+		return count;
+	}
+	
 	public void afisare() {
 		for (int i = 0; i < this.getRows(); i++) {
 			for (int j = 0; j < this.getCols(); j++)
