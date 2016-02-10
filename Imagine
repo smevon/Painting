@@ -7,6 +7,8 @@ public class Imagine {
 	private char[][] Matrice;
 	private int rows;
 	private int cols;
+	private int hastagRows[];
+	private int hastagCols[];
 
 	public Imagine(String fileName) {
 		try{
@@ -26,6 +28,9 @@ public class Imagine {
 		    	}
 		}
 		}
+		scanner.close();
+		this.setHastagCols(); //pentru a nu fi nevoiti sa apelam din main, gen
+		this.setHastagRows(); //img.setHastagCols.... din acest motiv set e private
 		}catch( FileNotFoundException e){
 			System.out.println(e.getMessage());
 		}
@@ -50,6 +55,44 @@ public class Imagine {
 	public void setCols(int cols) {
 		this.cols = cols;
 	}
+	
+	private void setHastagRows() {
+		this.hastagRows = new int[this.getRows()];
+		int count = 0;
+		for(int i = 0; i < this.getRows(); i++) {
+			for( int j = 0; j < this.getCols(); j ++ ) {
+				if (Matrice[i][j] == '#') {
+					count ++;
+				}
+					
+			}
+			this.hastagRows[i] = count;
+			count = 0;
+		}
+	}
+	public int[] getHastagRows() {
+		return hastagRows;
+	}
+	
+	private void setHastagCols() {
+		int count = 0;
+		this.hastagCols = new int[this.getCols()];
+		for( int j = 0; j < this.getCols(); j ++ ) {
+			for(int i = 0; i < this.getRows(); i++) {
+				if (Matrice[i][j] == '#') {
+					count ++;
+				}
+					
+			}
+			this.hastagCols[j] = count;
+			count = 0;
+		}
+	}
+	public int[] getHastagCols() {
+		return hastagCols;
+	}
+	
+	
 	public int paintSquare(int R, int C, int S) {
 		if (R - S < 0 || R + S >= this.getRows())
 			return 0;
