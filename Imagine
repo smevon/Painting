@@ -50,7 +50,29 @@ public class Imagine {
 	public void setCols(int cols) {
 		this.cols = cols;
 	}
-
+	public int paintSquare(int R, int C, int S) {
+		if (R - S < 0)
+			return 0;
+		else if (C - S < 0)
+			return 0;
+		
+		try{
+			for(int i=R-S;i<=R+S;i++)
+				for(int j=C-S;j<=C+S; j++)
+				Matrice[i][j]='#';
+		}catch(ArrayIndexOutOfBoundsException e){
+			System.out.println(e.getMessage());
+		}
+		return 1;
+	}
+	
+	public void eraseCell(int R, int C) {
+		try{
+			Matrice[R][C]='.';
+		}catch(ArrayIndexOutOfBoundsException e){
+			System.out.println(e.getMessage());
+		}
+	}
 	public void afisare() {
 		for (int i = 0; i < this.getRows(); i++) {
 			for (int j = 0; j < this.getCols(); j++)
