@@ -1,0 +1,33 @@
+
+public class Model {
+	Imagine img;
+	String operatii="";
+	int count=0;
+	
+	
+	public Model(Imagine img1){
+		this.img=img;
+	}
+	
+	public int parcurge(){
+		
+	}
+	
+	public int getMin(){
+		//returneaz nr mai mic dintre coloane si randuri
+		if(this.img.getRows()>this.img.getCols())
+			return this.img.getCols();
+		else
+			return img.getRows();
+	}
+	
+	
+	public int tryPatrat(){
+		
+		return 1;
+	}
+	
+	public int tryLinie(){
+		return 1;
+	}
+}
