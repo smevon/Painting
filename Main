@@ -5,6 +5,12 @@ public class Main {
 
 	Imagine img = new Imagine("/home/sergiu/workspace/Painting/src/logo.in");
 
+	Imagine newImg= new Imagine(img.getRows(),img.getCols());
+	
+	//algoritmizare
+	//alcoolizare
+	//afine
+
 	}
 	
 }
