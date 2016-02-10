@@ -15,4 +15,10 @@ public class Imagine {
 		this.cols = cols;
 	}
 	
+	public void afisare() {
+		for (int i = 0; i < rand; i++) {
+			for (int j = 0; j < coloana; j++)
+				System.out.print(matrice[i][j]+" ");
+			System.out.println();
+	}
 }
