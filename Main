@@ -5,8 +5,20 @@ public class Main {
 
 	Imagine img = new Imagine("/home/sergiu/workspace/Painting/src/logo.in");
 
+	int[] HR = img.getHastagRows(); // HASTAGROWS
+	int[] HC = img.getHastagCols(); // HASTAGCOLS
+	for ( int i = 0; i < HR.length; i++) {
+		System.out.println("La linia:"+i+": avem :" + HR[i] + " HASTAG!");
+	}
+	System.out.println();
+	for ( int i = 0; i < HC.length; i++) {
+		System.out.println("La coloana:"+i+": avem :" + HC[i] + " HASTAG!");
+	}
 	Imagine newImg= new Imagine(img.getRows(),img.getCols());
 	
+	
+	
+
 	//algoritmizare
 	//alcoolizare
 	//afine
