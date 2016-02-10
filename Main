@@ -2,8 +2,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Guie Gavrea!");
+
+	Imagine img = new Imagine("/home/sergiu/workspace/Painting/src/logo.in");
 
 	}
-
+	
 }
