@@ -157,13 +157,13 @@ public class Imagine {
 		}
 	}
 	
-	public int getHashTag(int miniRow, int miniCols) {
+	public int getHashTag(int beginRow, int beginCols, int miniRow, int miniCols) {
 		// returneaza cate HashTag-uri is intr-o parte mai micuta a matricei
 		// daca dorim sa ne returneze HashTagurile din matricea totala ii dam ca
 		// parametri rows si cols
 		int count = 0;
-		for (int i = 0; i < miniRow; i++)
-			for (int j = 0; j < miniCols; j++) {
+		for (int i = beginRow; i < miniRow; i++)
+			for (int j = beginCols; j < miniCols; j++) {
 				if (Matrice[i][j] == '#')
 					count++;
 			}
