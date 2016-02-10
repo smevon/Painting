@@ -51,16 +51,16 @@ public class Imagine {
 		this.cols = cols;
 	}
 	public int paintSquare(int R, int C, int S) {
-		if (R - S < 0)
+		if (R - S < 0 || R + S >= this.getRows())
 			return 0;
-		else if (C - S < 0)
+		if (C - S < 0 || C + S >= this.getCols())
 			return 0;
-		
-		try{
-			for(int i=R-S;i<=R+S;i++)
-				for(int j=C-S;j<=C+S; j++)
-				Matrice[i][j]='#';
-		}catch(ArrayIndexOutOfBoundsException e){
+
+		try {
+			for (int i = R - S; i <= R + S; i++)
+				for (int j = C - S; j <= C + S; j++)
+					Matrice[i][j] = '#';
+		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 		return 1;
