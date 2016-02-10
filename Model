@@ -9,7 +9,7 @@ public class Model {
 		this.img=img;
 	}
 	
-	public int parcurge(){
+	public void parcurge(){
 		
 	}
 	
