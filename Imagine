@@ -1,58 +1,55 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Imagine {
-	private int[][] Matrice;
+	private char[][] Matrice;
 	private int rows;
 	private int cols;
+
+	public Imagine(String fileName) {
+		try{
+		Scanner scanner = new Scanner(new File(fileName));
+		
+		this.setRows(scanner.nextInt());
+		this.setCols(scanner.nextInt());
+		Matrice=new char[rows][cols];
+		while(scanner.hasNext())
+		{
+		    for(int i=0;i <rows; i++)
+		    {
+	    		String line=scanner.next();
+		    	for(int j=0;j< cols; j++)
+		    	{
+		    		Matrice[i][j]=line.charAt(j);
+		    	}
+		}
+		}
+		}catch( FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		
+
+	}
 	
+	
+
 	public int getRows() {
 		return rows;
 	}
+
 	public void setRows(int rows) {
 		this.rows = rows;
 	}
+
 	public int getCols() {
 		return cols;
 	}
+
 	public void setCols(int cols) {
 		this.cols = cols;
 	}
-	
-	public Imagine(String fileName) { 
-		boolean first = true;
-		try (BufferedReader br = new BufferedReader(new FileReader(fileName)))
-		{
-			
-			String sCurrentLine;
-			int j = 0;
-		
-			while ((sCurrentLine = br.readLine()) != null) {
-				if ( first ) {
-					String[] lc;
-					lc = sCurrentLine.split(" ");
-					this.setRows(Integer.valueOf(lc[0]));
-					this.setCols(Integer.valueOf(lc[1]));
-					first = false;
-					
-					this.Matrice = new char[this.getRows()][this.getCols()];
-				} else {
-					
-					for (int i = 0; i < sCurrentLine.length(); i ++ ) {
-						this.Matrice[i][j] = sCurrentLine.charAt(i);
-					}
-					j++;
-				}
 
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
-
-	}
-	
 	public void afisare() {
 		for (int i = 0; i < this.getRows(); i++) {
 			for (int j = 0; j < this.getCols(); j++)
@@ -60,5 +57,4 @@ public class Imagine {
 			System.out.println();
 		}
 	}
-
 }
